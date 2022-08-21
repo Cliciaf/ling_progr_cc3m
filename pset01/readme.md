@@ -1,12 +1,12 @@
 <h1 align="center"> Problem set n°01 </h1>
 
-<h4>Aluno: ####Clicia Pereira de Freitas
+<h5>Aluno: Clicia Pereira de Freitas
 
 Disciplina: Linguagens de programação
 
-Professor: Abrantes Araújo Silva Filho</h4>
+Professor: Abrantes Araújo Silva Filho</h5>
 
-<h4> 
+<h5> 
    Nesse repositório você verá a implementação comentada do Algoritmo de Luhn. 
 Essa implementação consiste em 3 passos: 
 
@@ -21,4 +21,4 @@ Essa implementação consiste em 3 passos:
     for dividio por 10 e tiver resto 0), então o número representa um cartão de crédito válido
     (sintaticamente).
     
-</h4>
+</h5>
