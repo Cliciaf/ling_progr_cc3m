@@ -1,12 +1,13 @@
-"""
-receber numero do cartão
-transformar em string
-Pegar os numeros de index impar a partir do penultimo numero
-multiplicar por dois cada item 
-somar os digitos de cada resultado mais os numeros de index pares 
-somar o ultimo digito  
-se o numero final for divisivel por 10, então é valido
+"""  
 
+1. Começando pelo penúltimo dígito e indo em direção ao primeiro, multiplique cada dígito
+sim, dígito não, por 2. Depois some os dígitos desses resultados (atenção: não é para somar
+os resultados, é para somar os dígitos dos resultados);
+2. Adicione a soma dos dígitos dos resultados obtidos no passo anterior, à soma dos dígitos que
+não foram multiplicados por 2.
+3. Se o último dígito do total for 0 (ou, mais formalmente, se o total obtido no passo anterior
+for dividio por 10 e tiver resto 0), então o número representa um cartão de crédito válido
+(sintaticamente).
 """
 
 def entrada():
@@ -32,12 +33,15 @@ def flagValidator():
     """validando a bandeira do cartão"""
     global bandeira
     bandeira = ''
-    if list_of_ints[0] == 5:
-      bandeira = 'MASTERCARD'
-    elif list_of_ints[0] == 3:
-      bandeira = 'AMEX'
+    if list_of_ints[0] == 5 and len(list_of_ints) == 16:
+      if list_of_ints[1] in [1,2,3,4,5]:
+        bandeira = 'MASTERCARD'
+    elif list_of_ints[0] == 3 and len(list_of_ints) == 15:
+      if list_of_ints[1] in [4,7]:
+        bandeira = 'AMEX'
     elif list_of_ints[0] == 4:
-      bandeira = 'VISA'
+      if len(list_of_ints) in [13,16]:
+        bandeira = 'VISA'
     else:
       bandeira = 'INVALIDO'
 
@@ -64,7 +68,7 @@ def cardValidator():
       somaTotal = somaParcial + somaDigitos
 
     if str(somaTotal)[1] == '0':
-     return bandeira
+      return bandeira
     else:
       return 'INVALIDO'
 
