@@ -28,12 +28,11 @@ def check_user_input(input):
         try:
             # Convert it into float
             val = float(input)
-            print('Opa, virgula ou ponto indesejado. Digite novamente o numero do cartão: ')
-            entrada()
+            return "INVALIDO"
             
         except ValueError:
             return "INVALIDO"
-            exit()
+            
 
 
 def doingList(entrada):
