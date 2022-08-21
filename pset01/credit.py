@@ -10,19 +10,38 @@ for dividio por 10 e tiver resto 0), então o número representa um cartão de c
 (sintaticamente).
 """
 
+
+
 def entrada():
   """entrada do cartão"""
   numeroCartaoEntrada = input("Entre com o numero do cartão: ")
   return numeroCartaoEntrada
 
 
+def check_user_input(input):
+    """verifica se foram apenas numeros inseridos"""
+    try:
+        # Convert it into integer
+        val = int(input)
+        doingList(input)
+    except ValueError:
+        try:
+            # Convert it into float
+            val = float(input)
+            print('Opa, virgula ou ponto indesejado. Digite novamente o numero do cartão: ')
+            entrada()
+            
+        except ValueError:
+            return "INVALIDO"
+            exit()
+
+
 def doingList(entrada):
+    
     """transformando o input, que está em string, em uma lista de inteiros e verificando se tem a quantidade minima de caracteres"""
     numero = entrada
     global list_of_ints
     list_of_ints = [int(x) for x in numero]
-    #print(list_of_ints)  # 👉️ [1, 2, 3, 4, 5, 6]
-    
     if len(list_of_ints) < 13:
       print('porfavor, insira um numero de cartão valido.')
       entrada()
@@ -74,9 +93,12 @@ def cardValidator():
 
 
 def output():
-    doingList(entrada())
-    flagValidator()
-    print(cardValidator())
+    check = check_user_input(entrada())
+    if check == 'INVALIDO':
+      print('INVALIDO')
+    else:
+      flagValidator()
+      print(cardValidator())
     
 
 
