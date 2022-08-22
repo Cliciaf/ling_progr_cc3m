@@ -1,7 +1,7 @@
 
 def entrada():
   #entrada do cartão
-  numeroCartaoEntrada = input("Entre com o numero do cartão: ")
+  numeroCartaoEntrada = input("Entre com o numero do cartão (sem espaços): ")
   return numeroCartaoEntrada
 
 
