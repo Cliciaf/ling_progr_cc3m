@@ -25,13 +25,7 @@ def check_user_input(input):
         val = int(input)
         doingList(input)
     except ValueError:
-        try:
-            # Convert it into float
-            val = float(input)
-            return "INVALIDO"
-            
-        except ValueError:
-            return "INVALIDO"
+          return 'INVALIDO'
             
 
 
@@ -76,7 +70,7 @@ def cardValidator():
     for i in (range(len(list_of_ints) - 2, -1,-2)):
       list_of_ints[i] = list_of_ints[i]*2
 
-      if list_of_ints[i] > 10 :
+      if list_of_ints[i] >= 10 :
         somaDigitos +=(1 + (list_of_ints[i]-10))
       else:
         somaDigitos+=(list_of_ints[i])
