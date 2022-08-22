@@ -1,25 +1,12 @@
-"""  
-
-1. Começando pelo penúltimo dígito e indo em direção ao primeiro, multiplique cada dígito
-sim, dígito não, por 2. Depois some os dígitos desses resultados (atenção: não é para somar
-os resultados, é para somar os dígitos dos resultados);
-2. Adicione a soma dos dígitos dos resultados obtidos no passo anterior, à soma dos dígitos que
-não foram multiplicados por 2.
-3. Se o último dígito do total for 0 (ou, mais formalmente, se o total obtido no passo anterior
-for dividio por 10 e tiver resto 0), então o número representa um cartão de crédito válido
-(sintaticamente).
-"""
-
-
 
 def entrada():
-  """entrada do cartão"""
+  #entrada do cartão
   numeroCartaoEntrada = input("Entre com o numero do cartão: ")
   return numeroCartaoEntrada
 
 
 def check_user_input(input):
-    """verifica se foram apenas numeros inseridos"""
+    #verifica se foram apenas numeros inseridos
     try:
         # Convert it into integer
         val = int(input)
@@ -30,8 +17,7 @@ def check_user_input(input):
 
 
 def doingList(entrada):
-    
-    """transformando o input, que está em string, em uma lista de inteiros e verificando se tem a quantidade minima de caracteres"""
+    #transformando o input, que está em string, em uma lista de inteiros e verificando se tem a quantidade minima de caracteres
     numero = entrada
     global list_of_ints
     list_of_ints = [int(x) for x in numero]
@@ -42,7 +28,7 @@ def doingList(entrada):
     
 
 def flagValidator():
-    """validando a bandeira do cartão"""
+    #validando a bandeira do cartão
     global bandeira
     bandeira = ''
     if list_of_ints[0] == 5 and len(list_of_ints) == 16:
@@ -61,12 +47,13 @@ def flagValidator():
 
 
 def cardValidator():
-    """validando o numero do cartao"""
+    #validando o numero do cartao
 
     somaDigitos = 0
     somaParcial = 0
     somaTotal = 0
-    """Para validar, é necessario usar o Algoritmo de Luhn. Portanto, temos a seguir a implememtação desse algoritmo:"""
+    #Para validar, é necessario usar o Algoritmo de Luhn. 
+    #Portanto, temos a seguir a implememtação desse algoritmo:
     for i in (range(len(list_of_ints) - 2, -1,-2)):
       list_of_ints[i] = list_of_ints[i]*2
 
@@ -95,6 +82,6 @@ def output():
     
 
 
-"""Interface"""
+#Interface
 
 output()
